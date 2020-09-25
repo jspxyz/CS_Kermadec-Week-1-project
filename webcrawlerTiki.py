@@ -12,7 +12,7 @@ import requests
 r = requests.get('https://vnexpress.net/')
 
 print(r.text)
-''''
+'''
 
 # function to prase the raw text with beautiful soup
 ''' example code from class
@@ -25,9 +25,15 @@ soup = BeautifulSoup(r.text, 'html.parser')
 
 # function to extract information
 ''' need the following
-- product ID
-- product price
+- data-seller-product-id
+- product-sku
+- data-title
+- data-price
+- data-category
 - product image
+- product link
+- discount % price
+- original price
 '''
 
 # function to convert to pandas dataframe
