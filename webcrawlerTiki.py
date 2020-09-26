@@ -88,7 +88,5 @@ import pandas as pd
 
 productData = pd.DataFrame(data = data, columns = data[0].keys())
 
-# function to store result
-'''
-articles.to_csv("./result.csv", index=False)
-'''
+# line to store result as csv
+productData.to_csv("./result.csv", index=False)
