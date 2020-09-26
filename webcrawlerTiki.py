@@ -83,13 +83,10 @@ def scrape_tiki(url):
 - original price?
 '''
 
-# function to convert to pandas dataframe
-'''
+# convert to pandas dataframe
 import pandas as pd
 
-articles = pd.DataFrame(data = data, columns = data[0].keys())
-'''
-
+productData = pd.DataFrame(data = data, columns = data[0].keys())
 
 # function to store result
 '''
