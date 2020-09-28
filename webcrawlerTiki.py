@@ -82,7 +82,25 @@ def scrape_tiki(soup):
             dictionary['product_link'] = product_items_div[i].a['href']                       # in dictionary: product_link
             dictionary['img_link'] = product_items_div[i].img['src']                          # in dictionary: img_link
 
+            # adding additional information
+            dictionary['original_price'] = product_items_div[i].find('span',{'class':'price-regular'}).text # in dictionary: original_price
+            dictionary['discount'] = product_items_div[i].find('span',{'class':'sale-tag sale-tag-square'}).text       # in dictionary: discount
+            dictionary['comment_count'] = product_items_div[i].find('p',{'class':'review'}).text[1:-1]
 
+            # adding discount if available
+            try:
+              if product_items_div[i].find('div',{'class':'badge-under_price'}).img['src']:
+                dictionary['refund'] = 'Yes'
+            except:
+              dictionary['refund'] = 'No'
+            
+            # additng Tiki_now if available
+            try:                    
+              if product_items_div[i].find('div',{'class':'item'}).img['src']:
+                dictionary['Tiki_now'] = 'Yes'
+            except:
+              dictionary['Tiki_now'] = 'No'
+            
             # Append the dictionary to data list
             data.append(dictionary)
         
