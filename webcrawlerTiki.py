@@ -55,7 +55,20 @@ def scrape_tiki(soup):
 
     # Loop to go through list of products on page and return a dictionary to append to data list
     for i in range(len(product_items_div)):
-        dictionary = {'seller-product-id':'', 'sku':'', 'title':'', 'price':'', 'product-id':'', 'brand':'', 'category':'', 'product_link':'','img_link':''}
+        dictionary = {'seller-product-id':'', 
+                        'sku':'',
+                        'title':'',
+                        'price':'', 
+                        'product-id':'', 
+                        'brand':'', 
+                        'category':'', 
+                        'product_link':'',
+                        'img_link':'',
+                        'original_price':'',
+                        'discount':'',
+                        'refund':'',
+                        'Tiki_now':'',
+                        'comment_count':''}
         # We use the try-except blocks to handle errors
         try:
             dictionary['seller-product-id'] = product_items_div[i]['data-seller-product-id']  # in dictionary: seller-product-id
